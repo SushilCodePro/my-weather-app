@@ -1,0 +1,9 @@
+/* Example animation for rain */
+.rain-animation {
+    animation: rain 1s infinite alternate;
+}
+
+@keyframes rain {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
