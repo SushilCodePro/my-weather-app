@@ -1,0 +1,42 @@
+.weather-card {
+    background-color: #1e3a5f;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden; /* Ensure the card maintains its shape */
+    position: relative; /* Allow positioning of date-time */
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.temperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.condition {
+    font-size: 1.2rem;
+}
+
+.details {
+    text-align: left;
+}
+
+.details p {
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+    .details {
+        text-align: right;
+        margin-top: 0; 
+    }
+}
+
+@media (max-width: 767.98px) {
+    .details {
+        text-align: center;
+        margin-top: 1rem; 
+    }
+}

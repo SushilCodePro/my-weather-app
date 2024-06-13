@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import WeatherCard from './components/WeatherCard';
 import LocationInput from './components/LocationInput';
 import { getWeather } from './services/weatherService';
 import useLocation from './hooks/useLocation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'; // Optional for custom styles
 
 const App = () => {
     const [weather, setWeather] = useState(null);
-    const [location, setLocation] = useState('');
-    const { currentLocation, getCurrentLocation } = useLocation();
+    const { currentLocation } = useLocation();
+
+    const fetchWeather = useCallback(async (location) => {
+        const weatherData = await getWeather(location);
+        setWeather(weatherData);
+    }, []);
 
     useEffect(() => {
         if (currentLocation) {
             fetchWeather(currentLocation);
         }
-    }, [currentLocation]);
+    }, [currentLocation, fetchWeather]);
 
-    const fetchWeather = async (location) => {
-        const weatherData = await getWeather(location);
-        setWeather(weatherData);
-    };
-    // fetchWeather('Delhi');
     const handleLocationChange = (newLocation) => {
-        setLocation(newLocation);
         fetchWeather(newLocation);
     };
 

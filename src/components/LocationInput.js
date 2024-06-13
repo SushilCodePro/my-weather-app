@@ -19,7 +19,7 @@ const LocationInput = ({ onLocationChange }) => {
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="Enter location"
                 />
-                <button type="submit" className="btn btn-primary">Get Weather</button>
+                <button type="submit" className="btn bg-success text-white">Get Weather</button>
             </div>
         </form>
     );
